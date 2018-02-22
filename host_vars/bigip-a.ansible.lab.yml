@@ -30,12 +30,12 @@ vlan_information:
 
 selfip_information:                                 
  - name: 'External-SelfIP'                                        
-   address: '10.1.20.10'                                         
+   address: '10.1.10.10'                                         
    netmask: '255.255.255.0'
    vlan: 'External'
    allow_service: 'default'
  - name: 'Internal-SelfIP'
-   address: '10.1.10.10'
+   address: '10.1.20.10'
    netmask: '255.255.255.0'
    vlan: 'Internal'
    allow_service: 'default'

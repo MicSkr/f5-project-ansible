@@ -3,6 +3,6 @@
   gather_facts: false
   roles:
   - { role: bigip-onboarding, tags: onboarding }
-  #- { role: bigip-ansible-virtualserver, tags: virtual }
-  #- { role: bigip-ansible-deploy-iapp, tags: iapp }
+  - { role: bigip-ansible-virtualserver, tags: virtual }
+  - { role: bigip-ansible-deploy-iapp, tags: iapp }
 ...
