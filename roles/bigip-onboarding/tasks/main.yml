@@ -5,7 +5,7 @@
      user: "{{ username }}"
      password: "{{ password }}"
      ntp_servers: "{{ ntp_servers }}"
-     validate_certs: False
+     validate_certs: no
   delegate_to: localhost
 
 - name: Configure BIG-IP hostname
@@ -13,7 +13,7 @@
      server: "{{ inventory_hostname }}"
      user: "{{ username }}"
      password: "{{ password }}"
-     validate_certs: False
+     validate_certs: no
      hostname: "{{ hostname }}"
   delegate_to: localhost
 
@@ -24,7 +24,7 @@
      password: "{{ password }}"
      banner: "enabled"
      banner_text: " {{ banner_text }}"
-     validate_certs: False
+     validate_certs: no
   delegate_to: localhost
 
 - name: Manage BIG-IP DNS settings
@@ -35,7 +35,7 @@
     name_servers: "{{ dns_servers }}"
     search: "{{ dns_search_domains }}"
     ip_version: "{{ ip_version }}"
-    validate_certs: False
+    validate_certs: no
   delegate_to: localhost
 
 - name: Provision BIG-IP with appropriate modules
@@ -43,7 +43,7 @@
      server: "{{ inventory_hostname }}"
      user: "{{ username }}"
      password: "{{ password }}"
-     validate_certs: False
+     validate_certs: no
      module: "{{ item.name }}"
      level: "{{ item.level }}"
   with_items: "{{ module_provisioning }}"
@@ -54,7 +54,7 @@
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
-    validate_certs: False
+    validate_certs: no
     name: "{{ item.name }}"
     tag: "{{ item.tag }}"
     tagged_interface: "{{ item.interface }}"
@@ -66,7 +66,7 @@
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
-    validate_certs: False
+    validate_certs: no
     name: "{{ item.name }}"
     address: "{{ item.address }}"
     netmask: "{{ item.netmask }}"
