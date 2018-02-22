@@ -1,0 +1,6 @@
+directory_path: "/home/centos/f5-project-ansible/roles/bigip-ansible-deploy-iapp/templates"
+bigip_address: "{{ inventory_hostname }}"
+username: "admin"
+password: "admin"
+
+vip_ip: "10.168.68.144"

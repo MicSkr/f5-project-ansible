@@ -1,0 +1,6 @@
+[bigip]
+bigip-a.ansible.lab 
+#bigip-b.ansible.lab
+
+[webserver]
+#servera.ansible.lab

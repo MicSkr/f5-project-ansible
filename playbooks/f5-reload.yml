@@ -1,0 +1,24 @@
+---
+- name: Reload Origin UCS
+  hosts: bigip
+  gather_facts: false
+
+  tasks:
+#  - name: Install (install) UCS.
+#    bigip_ucs:
+#      server: "{{ inventory_hostname }}"
+#      user: admin
+#      password: admin
+#      ucs: /var/local/ucs/origin.ucs
+#      state: installed
+#      validate_certs: no
+#    delegate_to: localhost
+
+   - name: Load UCS
+     bigip_command:
+       server: "{{ inventory_hostname }}"
+       user: admin
+       pass: admin
+       validate_certs: no
+       commands: tmsh load sys ucs origin.ucs
+     delegate_to: localhost

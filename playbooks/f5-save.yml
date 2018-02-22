@@ -1,0 +1,14 @@
+---
+- name: Save the config
+  hosts: bigip
+  gather_facts: false
+
+  tasks:
+  - name: Save the running configuration of the BIG-IP
+    bigip_config:
+      save: yes
+      server: "{{ inventory_hostname }}"
+      password: admin
+      user: admin
+      validate_certs: no
+    delegate_to: localhost

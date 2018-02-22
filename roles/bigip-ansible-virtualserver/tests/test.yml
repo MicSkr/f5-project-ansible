@@ -1,0 +1,6 @@
+---
+- name: Configure http service
+  hosts: bigip
+  gather_facts: false
+  roles:
+  - { role: f5devcentral.bigip-ansible-virtualserver }
