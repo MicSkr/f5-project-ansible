@@ -1,5 +1,5 @@
 [bigip]
-bigip-a.ansible.lab 
+bigip-a.ansible.lab ansible_host=10.1.1.4
 #bigip-b.ansible.lab
 
 [webserver]
