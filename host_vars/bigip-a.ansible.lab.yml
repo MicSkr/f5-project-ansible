@@ -44,12 +44,14 @@ module_provisioning:
  - name: 'asm'                                       
    level: 'nominal'
 
-#pool_name: "web-pool"
-#
-#vip_name: "http_virtual_server"
-#vip_port: "80"
-#vip_ip: "10.1.20.120"
-#
-#pool_members:
-#- port: "80"
-#  host: "10.1.10.100"
+# Service Configuration
+
+pool_name: "web-pool"
+
+vip_name: "http_virtual_server"
+vip_port: "80"
+vip_ip: "10.1.20.120"
+
+pool_members:
+- port: "80"
+  host: "10.1.10.100"
