@@ -17,6 +17,7 @@ echo "Go!!!"
 sleep 1
 
 sudo apt-get update
+sudo apt-get -y install python-pip
 sudo -H pip install --upgrade pip
 sudo -H pip install --upgrade setuptools
 sudo -H pip install --upgrade git+https://github.com/ansible/ansible.git@stable-2.5
