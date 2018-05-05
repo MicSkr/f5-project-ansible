@@ -1,6 +1,6 @@
 #!/bin/bash
 echo -e '\0033\0143'
-echo "\n\n\n"
+printf "\n\n\n"
 
 echo "Ok, were going to setup real quicklike..."
 echo "PIP, Python Package Manager."
@@ -8,7 +8,7 @@ echo "Ansible version 2.5"
 echo "Some PIP / Ansible Dependencies like:"
 echo "f5-sdk bigsuds netaddr objectpath isoparser lxml deepdiff"
 echo ""
-sleep 1
+sleep 3
 echo "Ready?"
 sleep 1
 echo "Set..."
