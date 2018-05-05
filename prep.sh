@@ -28,9 +28,11 @@ echo ""
 echo "Setup bigip host entry in /etc/hosts..."
 echo "10.1.1.4 bigip-a bigip-a.ansible.lab" | sudo tee -a /etc/hosts
 echo ""
-echo "Now running lab cleanup playbook..."
+# echo "Now running lab cleanup playbook..."
+# echo ""
+# sleep 2
+# ansible-playbook ./playbooks/lab-cleanup.yml
+# prinf "\n\n\n"
+# echo "That stuff just above here is ansible playbook output... cleaned up the lab."
 echo ""
-sleep 2
-ansible-playbook ./playbooks/lab-cleanup.yml
-
 echo "I think were setup! Use command to run it all:  ansible-playbook site.yml"
