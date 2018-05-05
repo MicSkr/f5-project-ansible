@@ -1,13 +1,13 @@
 #!/bin/bash
 echo -e '\0033\0143'
-printf "\n\n\n"
+printf "\n\n"
 
-echo "Ok, were going to setup real quicklike..."
+echo "Ok, quick setup..."
 echo "PIP, Python Package Manager."
 echo "Ansible version 2.5"
 echo "Some PIP / Ansible Dependencies like:"
 echo "f5-sdk bigsuds netaddr objectpath isoparser lxml deepdiff"
-echo ""
+printf "\n\n\n"
 sleep 3
 echo "Ready?"
 sleep 1
@@ -24,7 +24,7 @@ sudo -H pip install f5-sdk bigsuds netaddr objectpath isoparser lxml deepdiff
 
 echo "Done with PIP, Ansible, and Dependencies"
 echo ""
-echo "Setup Lab host entries..."
+echo "Setup bigip host entry in /etc/hosts..."
 echo "10.1.1.4 bigip-a.ansible.lab" | sudo tee -a /etc/hosts
 echo ""
 echo "I think were setup! Use command to run it all:  ansible-playbook site.yml"
