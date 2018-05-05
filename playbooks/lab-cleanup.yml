@@ -3,11 +3,36 @@
   hosts: bigip
   gather_facts: false
 
+  vars:
+    username: admin
+    password: admin
+
+    inventory_host: 10.1.1.4
+
+    vlan_information:                                   
+    - name: 'net2'                                 
+      interface: '1.2'                                 
+    - name: 'net1'                                 
+      interface: '1.1'
+
+    selfip_information:                                 
+    - name: 'net1'                                        
+      address: '10.1.10.10'                                         
+      netmask: '255.255.255.0'
+      vlan: 'net1'
+      allow_service: 'default'
+    - name: 'net2'
+      address: '10.1.20.10'
+      netmask: '255.255.255.0'
+      vlan: 'net2'
+      allow_service: 'default'
+
+
   tasks:
 
   - name: Configure SELF-IPs on the BIG-IP
   bigip_selfip:
-    server: "{{ inventory_hostname }}"
+    server: "{{ inventory_host }}"
     user: "{{ username }}"
     password: "{{ password }}"
     validate_certs: no
@@ -22,12 +47,11 @@
 
   - name: Configure VLANs on the BIG-IP
   bigip_vlan:
-    server: "{{ inventory_hostname }}"
+    server: "{{ inventory_host }}"
     user: "{{ username }}"
     password: "{{ password }}"
     validate_certs: no
     name: "{{ item.name }}"
-    tag: "{{ item.tag }}"
     tagged_interface: "{{ item.interface }}"
     state: "absent"
   with_items: "{{ vlan_information }}"
