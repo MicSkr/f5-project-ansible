@@ -25,6 +25,6 @@ sudo -H pip install f5-sdk bigsuds netaddr objectpath isoparser lxml deepdiff
 echo "Done with PIP, Ansible, and Dependencies"
 echo ""
 echo "Setup bigip host entry in /etc/hosts..."
-echo "10.1.1.4 bigip-a.ansible.lab" | sudo tee -a /etc/hosts
+echo "10.1.1.4 bigip-a bigip-a.ansible.lab" | sudo tee -a /etc/hosts
 echo ""
 echo "I think were setup! Use command to run it all:  ansible-playbook site.yml"
