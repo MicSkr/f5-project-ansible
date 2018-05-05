@@ -1,0 +1,36 @@
+---
+- name: Cleanup BIGIP for Lab
+  hosts: bigip
+  gather_facts: false
+
+  tasks:
+
+  - name: Configure SELF-IPs on the BIG-IP
+  bigip_selfip:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: no
+    name: "{{ item.name }}"
+    address: "{{ item.address }}"
+    netmask: "{{ item.netmask }}"
+    vlan: "{{ item.vlan }}"
+    allow_service: "{{item.allow_service}}"
+    state: "absent"
+  with_items: "{{ selfip_information }}"
+  delegate_to: localhost
+
+  - name: Configure VLANs on the BIG-IP
+  bigip_vlan:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: no
+    name: "{{ item.name }}"
+    tag: "{{ item.tag }}"
+    tagged_interface: "{{ item.interface }}"
+    state: "absent"
+  with_items: "{{ vlan_information }}"
+  delegate_to: localhost
+
+
