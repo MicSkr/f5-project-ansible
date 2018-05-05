@@ -31,6 +31,6 @@ echo ""
 echo "Now running lab cleanup playbook..."
 echo ""
 sleep 2
-ansible-playbook ./f5-project-ansible/playbooks/lab-cleanup.yml
+ansible-playbook ./playbooks/lab-cleanup.yml
 
 echo "I think were setup! Use command to run it all:  ansible-playbook site.yml"
