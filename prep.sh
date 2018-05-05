@@ -1,4 +1,7 @@
 #!/bin/bash
+echo -e '\0033\0143'
+echo "\n\n\n"
+
 echo "Ok, were going to setup real quicklike..."
 echo "PIP, Python Package Manager."
 echo "Ansible version 2.5"
