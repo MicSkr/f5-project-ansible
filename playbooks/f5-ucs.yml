@@ -7,7 +7,7 @@
     username: admin
     password: admin
 
-    inventory_host: 10.1.1.4
+    bigip: 10.1.1.4
 
     # action: save
     action: install
@@ -28,7 +28,7 @@
 
   - name: Install (upload, install) UCS.
     bigip_ucs:
-      server: {{ inventory_host }}
+      server: {{ bigip }}
       user: {{ username }}
       password: {{ password }}
       ucs: {{ ucsname }}
