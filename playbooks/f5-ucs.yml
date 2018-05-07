@@ -28,7 +28,7 @@
 
   - name: Install (upload, install) UCS.
     bigip_ucs:
-      server: "{{ inventory_hostname }}"
+    server: "{{ inventory_hostname }}"
       user: "{{ username }}"
       password: "{{ password }}"
       ucs: "{{ ucsname }}"
