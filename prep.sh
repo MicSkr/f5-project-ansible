@@ -35,7 +35,7 @@ echo ""
 # prinf "\n\n\n"
 # echo "That stuff just above here is ansible playbook output... cleaned up the lab."
 echo ""
-echo "I think were setup! Copy and Paste these commands to use:
+echo "I think were setup! Copy and Paste these commands to use:"
 echo "ansible-playbook playbooks/f5-virtual-server.yml"
 echo "ansible-playbook playbooks/f5-virtual-server.yml -e \"state=absent\""
 echo "ansible-playbook playbooks/lab-cleanup.yml"
