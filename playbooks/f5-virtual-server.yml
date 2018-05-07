@@ -4,15 +4,31 @@
   hosts: bigip
   gather_facts: false
 
+  vars:
+    username: "admin"
+    password: "admin"
+
+    pool_name: "web-pool"
+
+    vip_name: "http_virtual_server"
+    vip_port: "80"
+    vip_ip: "10.168.68.143"
+
+    pool_members:
+    - port: "80"
+      host: "192.168.68.160"
+    - port: "80"
+      host: "192.168.68.161"
+
   tasks:
 
   - name: Create nodes
     bigip_node:
       server: "{{ inventory_hostname }}"
-      user: "{{ username }}"
-      password: "{{ password }}"
-      host: "{{item.host}}"
-      name: "{{item.host}}"
+      user: "admin"
+      password: "admin"
+      host: "192.168.68.160"
+      name: "192.168.68.160"
       validate_certs: False
     with_items: "{{pool_members}}"
     delegate_to: localhost
@@ -20,9 +36,9 @@
   - name: Create pool
     bigip_pool:
       server: "{{ inventory_hostname }}"
-      user: "{{ username }}"
-      password: "{{ password }}"
-      name: "{{pool_name}}"
+      user: "admin"
+      password: "admin"
+      name: "web-pool"
       lb_method: "round-robin"
       monitors: "/Common/http"
       validate_certs: False
@@ -31,12 +47,12 @@
   - name: Add Pool members
     bigip_pool_member:
       server: "{{ inventory_hostname }}"
-      user: "{{ username }}"
-      password: "{{ password }}"
-      name: "{{item.host}}"
-      host: "{{item.host}}"
-      port: "{{item.port}}"
-      pool: "{{pool_name}}"
+      user: "admin"
+      password: "admin"
+      name: "192.168.68.160"
+      host: "192.168.68.160"
+      port: "80"
+      pool: "web-pool"
       validate_certs: False
     with_items: "{{pool_members}}"
     delegate_to: localhost
@@ -44,14 +60,14 @@
   - name: Add Virtual Server
     bigip_virtual_server:
       server: "{{ inventory_hostname }}"
-      user: "{{ username }}"
-      password: "{{ password }}"
-      name: "{{vip_name}}"
-      destination: "{{vip_ip}}"
-      port: "{{vip_port}}"
+      user: "admin"
+      password: "admin"
+      name: "http_virtual_server"
+      destination: "10.168.68.143"
+      port: "80"
       all_profiles:
        - http
-      pool: "{{pool_name}}"
+      pool: "web-pool"
       snat: "automap"
       validate_certs: False
     delegate_to: localhost
