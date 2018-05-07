@@ -1,13 +1,13 @@
 ---
 - name: UCS Management Tasks
-  hosts: 10.1.1.4
+  hosts: bigip-a.ansible.lab
   gather_facts: false
 
   vars:
     username: admin
     password: admin
 
-    bigip: 10.1.1.4
+    bigip: bigip-a.ansible.lab
 
     # action: save
     action: install
@@ -18,7 +18,7 @@
   tasks:
 #  - name: Upload UCS
 #    bigip_ucs:
-#      server: "{{ inventory_host }}"
+#      server: ""{{ inventory_hostname }}""
 #      user: "{{ username }}"
 #      password: "{{ password }}"
 #      ucs: "{{ ucsname }}"
@@ -28,7 +28,7 @@
 
   - name: Install (upload, install) UCS.
     bigip_ucs:
-      server: "{{ bigip }}"
+      server: "{{ inventory_hostname }}"
       user: "{{ username }}"
       password: "{{ password }}"
       ucs: "{{ ucsname }}"
@@ -38,7 +38,7 @@
 
 #  - name: Install (upload, install) UCS without installing the license portion
 #    bigip_ucs:
-#      server: "{{ inventory_host }}"
+#      server: ""{{ inventory_hostname }}""
 #      user: "{{ username }}"
 #      password: "{{ password }}"
 #      ucs: "{{ ucsname }}"
@@ -48,7 +48,7 @@
 #
 #  - name: Install (upload, install) UCS except the license, and bypassing the platform check
 #    bigip_ucs:
-#      server: "{{ inventory_host }}"
+#      server: ""{{ inventory_hostname }}""
 #      user: "{{ username }}"
 #      password: "{{ password }}"
 #      ucs: "{{ ucsname }}"
@@ -59,7 +59,7 @@
 #
 #  - name: Install (upload, install) UCS using a passphrase necessary to load the UCS
 #    bigip_ucs:
-#      server: "{{ inventory_host }}"
+#      server: ""{{ inventory_hostname }}""
 #      user: "{{ username }}"
 #      password: "{{ password }}"
 #      ucs: "{{ ucsname }}"
@@ -69,7 +69,7 @@
 #
 #- name: Remove uploaded UCS file
 #  bigip_ucs:
-#    server: "{{ inventory_host }}"
+#    server: ""{{ inventory_hostname }}""
 #    user: "{{ username }}"
 #    password: "{{ password }}"
 #    ucs: "{{ ucsname }}"
